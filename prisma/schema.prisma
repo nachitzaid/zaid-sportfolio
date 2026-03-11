@@ -1,0 +1,250 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  OWNER_AGENT
+  SEEKER
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  BLOCKED
+}
+
+enum ListingType {
+  RENT
+  SALE
+}
+
+enum ListingStatus {
+  DRAFT
+  PENDING
+  ACTIVE
+  REJECTED
+  ARCHIVED
+}
+
+enum Currency {
+  MAD
+  EUR
+}
+
+enum PaymentProvider {
+  STRIPE
+}
+
+enum PaymentType {
+  RENT_FEE
+  SALE_COMMISSION
+  SUBSCRIPTION
+  FINE
+  BOOKING
+}
+
+enum PlanTier {
+  FREE
+  STARTER
+  PRO
+  AGENCY
+}
+
+enum BookingType {
+  SHORT_TERM
+  LONG_TERM
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+model User {
+  id           String      @id @default(cuid())
+  clerkId      String      @unique
+  email        String      @unique
+  displayName  String
+  phone        String?
+  role         UserRole
+  status       UserStatus  @default(ACTIVE)
+  locale       String      @default("fr")
+  country      String      @default("MA")
+  blockedAt    DateTime?
+  blockedUntil DateTime?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  listings     Listing[]
+  threadsAsBuyer  MessageThread[] @relation("BuyerThreads")
+  threadsAsSeller MessageThread[] @relation("SellerThreads")
+  messages     Message[]
+  subscriptions Subscription[]
+  payments     Payment[]
+  violations   ChatViolation[]
+  bookings     Booking[]
+}
+
+model Listing {
+  id          String        @id @default(cuid())
+  ownerId     String
+  owner       User          @relation(fields: [ownerId], references: [id])
+  type        ListingType
+  status      ListingStatus @default(PENDING)
+  title       String
+  description String
+  price       Int
+  currency    Currency
+  city        String
+  country     String
+  address     String?
+  latitude    Float?
+  longitude   Float?
+  bedrooms    Int?
+  bathrooms   Int?
+  areaSqm     Int?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  photos      ListingPhoto[]
+  threads     MessageThread[]
+  bookings    Booking[]
+}
+
+model Booking {
+  id                String        @id @default(cuid())
+  listingId         String
+  listing           Listing       @relation(fields: [listingId], references: [id])
+  guestId           String
+  guest             User          @relation(fields: [guestId], references: [id])
+  type              BookingType
+  status            BookingStatus @default(PENDING)
+  startDate         DateTime
+  endDate           DateTime
+  nights            Int?
+  months            Int?
+  totalAmount       Int
+  currency          Currency
+  prepaidPercent    Int           @default(100)
+  contractAcceptedAt DateTime?
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  payments          Payment[]
+}
+
+model ListingPhoto {
+  id        String   @id @default(cuid())
+  listingId String
+  listing   Listing  @relation(fields: [listingId], references: [id])
+  url       String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model MessageThread {
+  id        String   @id @default(cuid())
+  listingId String
+  listing   Listing  @relation(fields: [listingId], references: [id])
+  buyerId   String
+  buyer     User     @relation("BuyerThreads", fields: [buyerId], references: [id])
+  sellerId  String
+  seller    User     @relation("SellerThreads", fields: [sellerId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  messages  Message[]
+}
+
+model Message {
+  id          String        @id @default(cuid())
+  threadId    String
+  thread      MessageThread @relation(fields: [threadId], references: [id])
+  senderId    String
+  sender      User          @relation(fields: [senderId], references: [id])
+  body        String
+  containsContact Boolean   @default(false)
+  blocked     Boolean       @default(false)
+  createdAt   DateTime      @default(now())
+}
+
+model ChatViolation {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  messageId String?
+  reason    String
+  createdAt DateTime @default(now())
+  fine      Fine?
+}
+
+model Fine {
+  id           String   @id @default(cuid())
+  violationId  String   @unique
+  violation    ChatViolation @relation(fields: [violationId], references: [id])
+  amount       Int
+  currency     Currency
+  paid         Boolean  @default(false)
+  paidAt       DateTime?
+  paymentId    String?
+  payment      Payment? @relation(fields: [paymentId], references: [id])
+}
+
+model Plan {
+  id             String   @id @default(cuid())
+  tier           PlanTier
+  priceMAD       Int
+  priceEUR       Int
+  durationMonths Int      @default(3)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  subscriptions  Subscription[]
+}
+
+model Subscription {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  planId    String
+  plan      Plan     @relation(fields: [planId], references: [id])
+  startAt   DateTime
+  endAt     DateTime
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  payments  Payment[]
+}
+
+model Payment {
+  id            String          @id @default(cuid())
+  userId        String
+  user          User            @relation(fields: [userId], references: [id])
+  provider      PaymentProvider
+  type          PaymentType
+  amount        Int
+  currency      Currency
+  providerRef   String?
+  createdAt     DateTime        @default(now())
+  subscriptionId String?
+  subscription  Subscription?   @relation(fields: [subscriptionId], references: [id])
+  fineId        String?
+  fine          Fine?
+  bookingId     String?
+  booking       Booking?         @relation(fields: [bookingId], references: [id])
+}
