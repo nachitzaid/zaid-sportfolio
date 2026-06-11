@@ -371,6 +371,74 @@ export const PROJECTS: IProject[] = [
             '/projects/thumbnail/landonorris.png',
         ],
     },
+    {
+        title: 'NeuroDent UI Design',
+        slug: 'neurodent-ui-design',
+        year: 2025,
+        description: `
+      NeuroDent is a premium, AI-powered dental care platform UI/UX design. It features a modern, clean healthcare landing page optimized for conversion and client trust. <br/> <br/>
+      
+      Key Features:<br/>
+      <ul>
+        <li>🎨 High-Fidelity Design: Carefully curated dental visual aesthetics and balanced white space</li>
+        <li>🦷 AI Dentistry Showcase: Sections designed to clearly communicate neural networks integration in diagnosis and planning</li>
+        <li>📱 Responsive Layouts: Crafted with flexible grids and components inside Figma</li>
+      </ul>
+      `,
+        role: `
+      UI/UX Designer <br/>
+      <ul>
+        <li>✅ Created target user personas and designed user flows</li>
+        <li>✅ Created cohesive design system (color palette, typography, responsive elements) in Figma</li>
+        <li>✅ Produced high-fidelity mockups for landing pages and registration flow</li>
+      </ul>
+      `,
+        techStack: [
+            'Figma',
+            'UI/UX Design',
+            'Design Systems',
+            'Wireframing',
+        ],
+        thumbnail: '/projects/thumbnail/neurodent.png',
+        longThumbnail: '/projects/thumbnail/neurodent.png',
+        images: [
+            '/projects/thumbnail/neurodent.png',
+        ],
+    },
+    {
+        title: 'Nestly UI Design',
+        slug: 'nestly-ui-design',
+        year: 2025,
+        description: `
+      Nestly is a luxury real-estate exploration and booking UI/UX design. Made to deliver a premium property exploration experience with immersive 3D-tour hooks. <br/> <br/>
+      
+      Key Features:<br/>
+      <ul>
+        <li>🏡 Modern Real Estate Visuals: Minimalist yet bold editorial layout style</li>
+        <li>🕶️ Immersive Call to Action: Designed components for booking 3D virtual tours</li>
+        <li>💎 Premium Color Palette: Curated soft beige, dark slate, and vibrant highlights</li>
+      </ul>
+      `,
+        role: `
+      UI/UX Designer <br/>
+      <ul>
+        <li>✅ Outlined layout structures and visual hierarchies</li>
+        <li>✅ Custom-designed high-fidelity components and card systems in Figma</li>
+        <li>✅ Standardized responsive desktop/mobile layouts</li>
+      </ul>
+      `,
+        techStack: [
+            'Figma',
+            'UI/UX Design',
+            'Visual Design',
+            'Design Systems',
+        ],
+        thumbnail: '/projects/thumbnail/nestly.png',
+        longThumbnail: '/projects/thumbnail/nestly.png',
+        images: [
+            '/projects/thumbnail/nestly.png',
+        ],
+    },
 ];
 
 export const MY_EXPERIENCE = [
