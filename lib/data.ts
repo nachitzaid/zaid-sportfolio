@@ -135,6 +135,43 @@ export const PROJECTS: IProject[] = [
         ],
     },
     {
+        title: 'Elementis Awwwards Rebuild',
+        slug: 'elementis-rebuild',
+        liveUrl: 'https://elementis-rebuild.vercel.app/',
+        year: 2025,
+        description: `
+      A full rebuild of the Awwwards-winning Elementis skincare brand website, focusing on cinematic video hero sections, masked text reveals, and physics-based smooth scrolling. <br/> <br/>
+
+      Key Features:<br/>
+      <ul>
+        <li>🎬 Cinematic Hero: Fullscreen video player with parallax and scroll-driven reveals</li>
+        <li>✍️ Masked Text Animations: Line-by-line clip-path text reveals and responsive marquees</li>
+        <li>🧲 Premium UX Details: Custom cursor, animated sidebar navigation, and Lenis buttery smooth scrolling</li>
+      </ul>
+      `,
+        role: `
+      Frontend & Motion Developer <br/>
+      <ul>
+        <li>✅ Recreated the award-winning layout and scroll experience from scratch with Next.js 15 and React 19</li>
+        <li>✅ Built the motion system (Motion variants, useScroll, useTransform) and Lenis integration</li>
+        <li>✅ Engineered responsive Server/Client component splits for optimal streaming performance</li>
+      </ul>
+      `,
+        techStack: [
+            'Next.js 15',
+            'React 19',
+            'Motion',
+            'Lenis',
+            'Tailwind CSS 4',
+            'TypeScript',
+        ],
+        thumbnail: '/projects/thumbnail/elementis.png',
+        longThumbnail: '/projects/thumbnail/elementis.png',
+        images: [
+            '/projects/thumbnail/elementis.png',
+        ],
+    },
+    {
         title: 'Atlas Estate',
         slug: 'atlas-estate',
         liveUrl: 'https://atlas-estate-neon.vercel.app/',
