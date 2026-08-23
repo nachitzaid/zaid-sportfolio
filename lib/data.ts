@@ -13,7 +13,7 @@ export const GENERAL_INFO = {
 export const SOCIAL_LINKS = [
     { name: 'github', url: 'https://github.com/nachitzaid' },
     { name: 'linkedin', url: 'https://www.linkedin.com/in/zaid-nachit-9419b430b/' },
-    { name: 'instagram', url: 'https://www.instagram.com/znxstudio/' },
+    { name: 'instagram', url: 'https://www.instagram.com/znx_studio/' },
     { name: 'tiktok', url: 'https://www.tiktok.com/@znx.studio1' },
     { name: 'whatsapp', url: 'https://wa.me/212691241422?text=Hello%20Zaid!%20I%20saw%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20project%20with%20you.' },
 ];
