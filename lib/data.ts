@@ -62,6 +62,145 @@ export const MY_STACK = {
 
 export const PROJECTS: IProject[] = [
     {
+        title: 'SBG Academy',
+        slug: 'sbg-academy',
+        liveUrl: 'https://sbg-academy-iota.vercel.app/',
+        year: 2025,
+        description: `
+      SBG Academy is a modern, responsive school website featuring an interactive multi-step admissions portal, direct email contact, and rich program & student-activity showcases. <br/> <br/>
+
+      Key Features:<br/>
+      <ul>
+        <li>📝 Admissions Portal: Multi-step inquiry form with submissions saved automatically to Google Sheets</li>
+        <li>📧 Contact by Email: Direct email submissions via EmailJS with phone field and CC configuration — no backend needed</li>
+        <li>📱 Mobile-First Design: Fluid scrolling and smooth scroll animations, optimized for all devices</li>
+      </ul>
+      `,
+        role: `
+      Frontend Developer <br/>
+      <ul>
+        <li>✅ Built the full multi-page experience (Home, About, Activities, Admissions, Contact) with React & TypeScript</li>
+        <li>✅ Integrated EmailJS contact flow and Google Sheets admissions storage via Apps Script</li>
+        <li>✅ Crafted the modern SBG branding, custom favicon, and responsive layouts with Tailwind CSS</li>
+      </ul>
+      `,
+        techStack: [
+            'React 18',
+            'TypeScript',
+            'Vite',
+            'Tailwind CSS',
+            'EmailJS',
+            'Google Sheets API',
+        ],
+        thumbnail: '/projects/thumbnail/sbg-academy.png',
+        longThumbnail: '/projects/thumbnail/sbg-academy.png',
+        images: [
+            '/projects/thumbnail/sbg-academy.png',
+        ],
+    },
+    {
+        title: 'CrystalDent',
+        slug: 'crystaldent',
+        liveUrl: 'https://crystaldent-site-main.vercel.app/',
+        year: 2025,
+        description: `
+      CrystalDent is a premium dental clinic website (Viena Dental) built as a static, performance-first experience with a dark ink design system, buttery GSAP + Lenis motion, and a booking widget. <br/> <br/>
+
+      Key Features:<br/>
+      <ul>
+        <li>🦷 Clinic Showcases: Services, doctors, tri-panel treatments, and FAQ sections driven by a single content data file</li>
+        <li>🎬 Premium Motion: GSAP scroll-triggered animations with Lenis smooth scrolling, respecting prefers-reduced-motion</li>
+        <li>♿ Accessibility-First: Lighthouse 100 in Accessibility, Best Practices & SEO; WCAG AA contrast throughout</li>
+      </ul>
+      `,
+        role: `
+      Frontend & Motion Developer <br/>
+      <ul>
+        <li>✅ Built all page sections as Astro components with a centralized site content data layer</li>
+        <li>✅ Implemented the motion system (GSAP + Lenis) and interactive booking widget</li>
+        <li>✅ Designed the OKLCH design-token system, self-hosted Unbounded/Jost typography, and SVG brand lockup</li>
+      </ul>
+      `,
+        techStack: [
+            'Astro',
+            'Tailwind CSS 4',
+            'GSAP',
+            'Lenis',
+            'TypeScript',
+        ],
+        thumbnail: '/projects/thumbnail/crystaldent.png',
+        longThumbnail: '/projects/thumbnail/crystaldent.png',
+        images: [
+            '/projects/thumbnail/crystaldent.png',
+        ],
+    },
+    {
+        title: 'Atlas Estate',
+        slug: 'atlas-estate',
+        liveUrl: 'https://atlas-estate-neon.vercel.app/',
+        year: 2025,
+        description: `
+      Atlas Estate is a luxury property search and listings booking platform built to demonstrate high-performance real estate exploration. <br/> <br/>
+
+      Key Features:<br/>
+      <ul>
+        <li>🏠 Real Estate Listings: Dynamic search queries, category filters, and detail sheets</li>
+        <li>⚡ Server Optimization: Leveraged React Server Components (RSC) for quick catalog loads</li>
+      </ul>
+      `,
+        role: `
+      Full-Stack Developer <br/>
+      <ul>
+        <li>✅ Designed interactive filtering query hooks and state management</li>
+        <li>✅ Structured clean, modular layouts for cards and listings detail views</li>
+      </ul>
+      `,
+        techStack: [
+            'Next.js',
+            'TypeScript',
+            'Tailwind CSS',
+            'Framer Motion',
+        ],
+        thumbnail: '/projects/thumbnail/atlas-estate.jpg',
+        longThumbnail: '/projects/thumbnail/atlas-estate.jpg',
+        images: [
+            '/projects/thumbnail/atlas-estate.jpg',
+        ],
+    },
+    {
+        title: 'Lando Norris Rebuild',
+        slug: 'lando-norris-rebuild',
+        liveUrl: 'https://lando-noris.vercel.app/',
+        year: 2025,
+        description: `
+      A rebuild of an Awwwards-winning landing page design highlighting F1 Driver Lando Norris, focusing on high-end desktop web animations and physics-based scrolls. <br/> <br/>
+
+      Key Features:<br/>
+      <ul>
+        <li>🏎️ Premium Motion: Parallax scroll-triggered GSAP animations</li>
+        <li>⚡ Award-winning Layouts: Complex CSS grid overlays and custom visual effects</li>
+      </ul>
+      `,
+        role: `
+      Frontend & Motion Developer <br/>
+      <ul>
+        <li>✅ Recreated the core scroll timeline mechanisms from the ground up</li>
+        <li>✅ Fine-tuned timeline GSAP easing formulas and SVG animations</li>
+      </ul>
+      `,
+        techStack: [
+            'Next.js',
+            'GSAP ScrollTrigger',
+            'Tailwind CSS',
+            'Framer Motion',
+        ],
+        thumbnail: '/projects/thumbnail/landonorris.png',
+        longThumbnail: '/projects/thumbnail/landonorris.png',
+        images: [
+            '/projects/thumbnail/landonorris.png',
+        ],
+    },
+    {
         title: 'Food4U',
         slug: 'food4u',
         liveUrl: 'https://v0-food4u-6i884p8vq-zaidnachit77-1491s-projects.vercel.app/',
@@ -303,72 +442,6 @@ export const PROJECTS: IProject[] = [
         longThumbnail: '/projects/thumbnail/capsule.jpg',
         images: [
             '/projects/thumbnail/capsule.jpg',
-        ],
-    },
-    {
-        title: 'Atlas Estate',
-        slug: 'atlas-estate',
-        liveUrl: 'https://atlas-estate-neon.vercel.app/',
-        year: 2025,
-        description: `
-      Atlas Estate is a luxury property search and listings booking platform built to demonstrate high-performance real estate exploration. <br/> <br/>
-      
-      Key Features:<br/>
-      <ul>
-        <li>🏠 Real Estate Listings: Dynamic search queries, category filters, and detail sheets</li>
-        <li>⚡ Server Optimization: Leveraged React Server Components (RSC) for quick catalog loads</li>
-      </ul>
-      `,
-        role: `
-      Full-Stack Developer <br/>
-      <ul>
-        <li>✅ Designed interactive filtering query hooks and state management</li>
-        <li>✅ Structured clean, modular layouts for cards and listings detail views</li>
-      </ul>
-      `,
-        techStack: [
-            'Next.js',
-            'TypeScript',
-            'Tailwind CSS',
-            'Framer Motion',
-        ],
-        thumbnail: '/projects/thumbnail/atlas-estate.jpg',
-        longThumbnail: '/projects/thumbnail/atlas-estate.jpg',
-        images: [
-            '/projects/thumbnail/atlas-estate.jpg',
-        ],
-    },
-    {
-        title: 'Lando Norris Rebuild',
-        slug: 'lando-norris-rebuild',
-        liveUrl: 'https://lando-noris.vercel.app/',
-        year: 2025,
-        description: `
-      A rebuild of an Awwwards-winning landing page design highlighting F1 Driver Lando Norris, focusing on high-end desktop web animations and physics-based scrolls. <br/> <br/>
-      
-      Key Features:<br/>
-      <ul>
-        <li>🏎️ Premium Motion: Parallax scroll-triggered GSAP animations</li>
-        <li>⚡ Award-winning Layouts: Complex CSS grid overlays and custom visual effects</li>
-      </ul>
-      `,
-        role: `
-      Frontend & Motion Developer <br/>
-      <ul>
-        <li>✅ Recreated the core scroll timeline mechanisms from the ground up</li>
-        <li>✅ Fine-tuned timeline GSAP easing formulas and SVG animations</li>
-      </ul>
-      `,
-        techStack: [
-            'Next.js',
-            'GSAP ScrollTrigger',
-            'Tailwind CSS',
-            'Framer Motion',
-        ],
-        thumbnail: '/projects/thumbnail/landonorris.png',
-        longThumbnail: '/projects/thumbnail/landonorris.png',
-        images: [
-            '/projects/thumbnail/landonorris.png',
         ],
     },
     {
